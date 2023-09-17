@@ -1,2 +1,2 @@
 # nodemate
-A simple nodes provisioning tool
+A simple node provisioning automation tool
