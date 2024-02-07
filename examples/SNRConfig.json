@@ -1,0 +1,33 @@
+
+{
+   "nodebook": {
+      "comment": "Configures SNR switch",
+      "nodes": "switches",
+      "tasks": [{
+            "name": "Enter configuration mode",
+            "module": "switch",
+            "platform": "SNR",
+            "command": "configuration"
+         },
+         {
+            "name": "Exit configuration mode",
+            "module": "switch",
+            "platform": "SNR",
+            "command": "exit"
+         },
+         {
+            "name": "Get running config",
+            "module": "switch",
+            "platform": "SNR",
+            "save_into": "configuration",
+            "command": "show running"
+         },
+         {
+            "name": "Copy file",
+            "module": "switch",
+            "platform": "SNR",
+            "command": "cp src/config.txt dst/config.txt"
+         }
+      ]
+   }
+}
