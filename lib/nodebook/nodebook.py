@@ -21,6 +21,9 @@ class NodeBook(object):
         self.validate();
     
     def validate(self):
+        """
+        Validates tasks
+        """
         if not self.nodebook.get("nodebook", None):
             raise Exception("Invalid root element")
         tasks = self.nodebook["nodebook"].get("tasks", None)
@@ -33,3 +36,9 @@ class NodeBook(object):
         if not self.nodes:
             raise Exception("No nodes are given")
         self.comment = self.nodebook.get("comment", None)
+    
+    def get_tasks(self):
+        """
+        Returns list of tasks
+        """
+        return self.tasks
