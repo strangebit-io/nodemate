@@ -1,5 +1,4 @@
-from paramiko.client import SSHClient
-from paramiko.client import AutoAddPolicy
+
 class Task():
     """
     Task instance
@@ -27,15 +26,10 @@ class Task():
             raise Exception("No command was given")
     def get_command(self):
         return self.task["command"]
-    def execute(self, host, port, username, password):
+    def execute(self, client):
         """
         Executes command on remote device
         """
-        client = SSHClient()
-        client.load_system_host_keys()
-        client.set_missing_host_key_policy(AutoAddPolicy())
-        client.connect(host, port, username, password, look_for_keys=False)
         stdin, stdout, stderr = client.exec_command(self.task.get("command"))
         print(stdout.readlines())
-        client.close()
         
